@@ -6,10 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="income and expenses management system জমাখরচ is very easy to user. You can manage your buseness, dealy income and dealy expenses.">
-  <meta name="keywords" content="income, expenses, income-expenses, income-expenses management system, জমাখরচ, host-satkania, dedicated-hosting, web-hosthing, cloud hosting">
+  <meta name="description" content="income and expenses management system জমাখরচ is very easy to user. You can manage your business, delay income and daily expenses.">
+  <meta name="keywords" content="income, expenses, income-expenses, income-expenses management system, জমাখরচ, host-satkania, dedicated-hosting, web-hosting, cloud hosting">
   <meta name="developer" content="income and expenses management system জমাখরচ is developed by RS Group, ashikul islam saun, rabiull hassan">
-  <meta name="author" content="Rabull hassan, ashikul islam saun">
+  <meta name="author" content="Rabiull hassan, ashikul islam saun">
 
 
   <title>জমাখরচ - Dashboard</title>
@@ -75,7 +75,7 @@
       <div class="list-group list-group-flush">
         <a href="profile.php" class="list-group-item list-group-item-action"><span data-feather="user"></span> Profile</a>
         
-        <!-- <select class="list-group-item list-group-item-action" onchange="set_lenguage()" name="language">
+        <!-- <select class="list-group-item list-group-item-action" onchange="set_language()" name="language">
           <option value="en">ENGLISH</option>
           <option value="bn">বাংলা</option>
         </select> -->
