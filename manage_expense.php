@@ -19,10 +19,10 @@
       <?php 
         include_once 'includes/nav.php';
       ?>
-            <div class="container-fluid">
+            <div class="container-fluid" style="overflow:scroll;">
             
                <hr>
-                <div class="d-flex">
+                <div class="d-flex" style="min-width: 700px;">
                   <div class="mr-auto p-2">
                       <a href="add_expense.php" class="btn btn-primary">Add New Expance</a>
                   </div>
@@ -120,7 +120,7 @@
                 
                <div class="row justify-content-center pt-2">
                   <h4>All Expenses Record</h4>
-                  <div class="col-md-12">
+                  <div class="col-12" style="min-width: 700px;">
                      <table class="table table-hover table-bordered">
                         <thead>
                            <tr class="text-center">
@@ -153,6 +153,8 @@
                   </div>
                </div>
             </div>
+
+
          </div>
       </div>
       <!-- /#page-content-wrapper -->

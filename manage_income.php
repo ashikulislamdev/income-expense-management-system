@@ -19,11 +19,11 @@
       ?>
 
       
-            <div class="container-fluid">
+            <div class="container-fluid" style="overflow:scroll;">
                <h3 class="mt-4 text-center">Manage Incomes</h3>
                <hr>
 
-               <div class="d-flex">
+               <div class="d-flex" style="min-width: 700px;">
                   <div class="mr-auto p-2">
                       <a href="add_income.php" class="btn btn-primary">Add New Income</a>
                   </div>

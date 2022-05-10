@@ -1,7 +1,6 @@
 <?php 
   include("session.php");
 
-
   $exp_fetched = mysqli_query($con, "SELECT * FROM `expenses` WHERE expensedate > (NOW() - INTERVAL 1 DAY) AND `user_id` = '$userid' ORDER BY expensedate DESC");
 
   $income_fetched = mysqli_query($con, "SELECT * FROM `incomes` WHERE incomedate > (NOW() - INTERVAL 1 DAY) AND `user_id` = '$userid' ORDER BY incomedate DESC");
@@ -85,57 +84,70 @@
           <h6 class="mr-auto">Date : <?php echo date('d-m-y') ?> </h6>
           <h6>Name : <?php echo $username; ?></h6>
         </div>
-          <div class="col-md-6 col-sm-12 col-12">
-            <h4>Expenses (<?php echo $expenses_last_day_amount ? $expenses_last_day_amount : '00'; ?> TK)</h4>
+          <div class="col-md-12 col-sm-12 col-12">
              <table class="table table-hover table-bordered">
                 <thead>
                    <tr class="text-center">
-                      <th>#</th>
-                      <th>Date</th>
-                      <th>Amount</th>
-                      <th>Expense Type</th>
-                      <th>Expense Note</th>
+                      <th colspan="4">Incomes</th>
                    </tr>
-                </thead>
-                <tbody id="dataTable">
-                    <?php $count=1; while ($row = mysqli_fetch_array($exp_fetched)) { ?>
-                    <tr>
-                       <td><?php echo $count;?></td>
-                       <td><?php echo $row['expensedate']; ?></td>
-                       <td><?php echo $row['expense']; ?> TK</td>
-                       <td><?php echo $row['expensecategory']; ?></td>
-                       <td><?php echo $row['expense_note']; ?></td>
-                    </tr>
-                    <?php $count++; } ?>
-                </tbody>
-             </table>
-          </div>
-
-          <div class="col-md-6 col-sm-12 col-12">
-            <h4>Incomes (<?php echo $income_last_day_amount ? $income_last_day_amount : '00' ; ?> TK)</h4>
-             <table class="table table-hover table-bordered">
-                <thead>
                    <tr class="text-center">
-                      <th>#</th>
-                      <th>Date</th>
-                      <th>Amount</th>
+                      <th>S/N</th>
                       <th>Income Type</th>
                       <th>Income Note</th>
+                      <th>Amount</th>
                    </tr>
                 </thead>
                 <tbody id="dataTable">
                     <?php $count=1; while ($row = mysqli_fetch_array($income_fetched)) { ?>
                     <tr>
                        <td><?php echo $count;?></td>
-                       <td><?php echo $row['incomedate']; ?></td>
-                       <td><?php echo $row['income']; ?> TK</td>
                        <td><?php echo $row['incomecategory']; ?></td>
                        <td><?php echo $row['income_note']; ?></td>
+                       <td><?php echo $row['income']; ?> TK</td>
                     </tr>
                     <?php $count++; } ?>
+                    <tr>
+                       <td colspan="3" class="text-right">Total Incomes</td>
+                       <td><?php echo $income_last_day_amount ? $income_last_day_amount : '00' ; ?> TK</td>
+                    </tr>
                 </tbody>
              </table>
           </div>
+
+          <div class="col-md-12 col-sm-12 col-12">
+             <table class="table table-hover table-bordered">
+                <thead>
+                   <tr class="text-center">
+                      <th colspan="4">Expenses</th>
+                   </tr>
+                   <tr class="text-center">
+                      <th>S/N</th>
+                      <th>Expense Type</th>
+                      <th>Expense Note</th>
+                      <th>Amount</th>
+                   </tr>
+                </thead>
+                <tbody id="dataTable">
+                    <?php $count=1; while ($row = mysqli_fetch_array($exp_fetched)) { ?>
+                    <tr>
+                       <td><?php echo $count;?></td>
+                       <td><?php echo $row['expensecategory']; ?></td>
+                       <td><?php echo $row['expense_note']; ?></td>
+                       <td><?php echo $row['expense']; ?> TK</td>
+                    </tr>
+                    <?php $count++; } ?>
+                    <tr>
+                       <td colspan="3" class="text-right">Total Expenses</td>
+                       <td><?php echo $expenses_last_day_amount ? $expenses_last_day_amount : '00'; ?> TK</td>
+                    </tr>
+                    <tr>
+                       <td colspan="3" class="text-right"><b>Cash</b></td>
+                       <td><?php echo $income_last_day_amount - $expenses_last_day_amount ? $income_last_day_amount - $expenses_last_day_amount : '00' ; ?> TK</td>
+                    </tr>
+                </tbody>
+             </table>
+          </div>
+
       </div>
           <div class="float-right pt-1 pr-2">
             <a class="btn btn-success" href="index.php">Go-to Home</a>

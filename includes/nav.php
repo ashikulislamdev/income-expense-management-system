@@ -3,6 +3,19 @@
 
 <head>
 
+  <!-- ★ জমাখরচ is an income and expense manager for your daily expenses, which will make you save money. Use this daily expense manager to keep under control all your finances in a simple way.
+
+You can easily keep track of your bills, income, and expenses for your personal finance or as an income and expense manager for business ★
+
+RS-DEV is a software development company based in Satkania Chattogram, Bangladesh.
+In addition to our flagship products – IEMS(Income Expense Management System), RS-Dev also has over half-dozen software products in the market. With over 10,000 customers and over 3 years of proven technology expertise, QLC is working on a number of product ideas.
+
+Contact Us
+We are always ready to help you!
+Already using our solutions and experiencing technical issues?
+Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -85,7 +98,7 @@
 
       <div class="sidebar-heading">About</div>
       <div class="list-group list-group-flush">
-        <a href="profile.php" class="list-group-item list-group-item-action"><i class='bx bx-user-pin' ></i>About Us</a>
+        <a href="about-us.php" class="list-group-item list-group-item-action"><i class='bx bx-user-pin' ></i>About Us</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
