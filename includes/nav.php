@@ -50,6 +50,19 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
       text-decoration: dotted;
     }
 
+    .speech {
+      border: 1px solid #ddd;
+      padding: 0;
+      margin: 0;
+    }
+    .speech textarea {
+      border: 0;
+      display: inline-block;
+    }
+    .speech img {
+      float: right;
+      width: 40px;
+    }
   </style>
 
 </head>

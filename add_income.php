@@ -146,7 +146,8 @@
                         <div class="form-group row">
                            <label for="income_note" class="col-sm-6 col-form-label"><b>Income Note</b></label>
                            <div class="col-md-6">
-                              <textarea class="form-control col-sm-12" placeholder="Income Note" name="income_note" id="income_note"><?php echo $income_note; ?></textarea>
+                              <textarea class="form-control col-sm-12" id="transcript" rows="4" placeholder="Income Note(ভয়েস আইকনে ক্লিক করে বাংলায় লিখুন)" name="income_note" id="income_note"><?php echo $income_note; ?></textarea>
+                              <img onclick="startDictation()" src="icon/voice_type.gif" />
                            </div>
                         </div>
 
@@ -163,7 +164,7 @@
                         </div>
                      </form>
                   </div>
-
+ 
                   <div class="col-md-6">
                   	<form action="" method="POST">
                         <div class="form-group row">
@@ -229,6 +230,28 @@
       <script>
          feather.replace();
       </script>
-      <script></script>
+
+<script>
+         function startDictation() {
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+               var recognition = new webkitSpeechRecognition();
+
+               recognition.continuous = false;
+               recognition.interimResults = false;
+
+               recognition.lang = 'bn-US';
+               recognition.start();
+
+               recognition.onresult = function (e) {
+               document.getElementById('transcript').value = e.results[0][0].transcript;
+               recognition.stop();
+               };
+
+               recognition.onerror = function (e) {
+               recognition.stop();
+               };
+            }
+         }
+      </script>
    </body>
 </html>
