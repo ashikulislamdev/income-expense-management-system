@@ -63,6 +63,14 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
       float: right;
       width: 40px;
     }
+    .goog-logo-link{
+      display: none;
+    }
+    .translate_sec{
+      margin-right: 40px;
+      width: 120px;
+      float: right;
+    }
   </style>
 
 </head>
@@ -118,6 +126,16 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
+      
+    <!-- Translation Code here -->
+    <span class="translate_sec">
+        <div class="translate" id="google_translate_element"></div>
+          <script type="text/javascript">
+              function googleTranslateElementInit() {  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');}
+          </script>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </span>
+		<!-- Translation Code End here -->
 
       <nav class="navbar navbar-expand-lg navbar-light  border-bottom">
 

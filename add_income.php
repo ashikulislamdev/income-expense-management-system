@@ -146,7 +146,7 @@
                         <div class="form-group row">
                            <label for="income_note" class="col-sm-6 col-form-label"><b>Income Note</b></label>
                            <div class="col-md-6">
-                              <textarea class="form-control col-sm-12" id="transcript" rows="4" placeholder="Income Note(ভয়েস আইকনে ক্লিক করে বাংলায় লিখুন)" name="income_note" id="income_note"><?php echo $income_note; ?></textarea>
+                              <textarea class="form-control col-sm-12" id="transcript" rows="4" placeholder="Income Note/ভয়েস আইকনে ক্লিক করে বাংলায় বলুন" name="income_note" id="income_note"><?php echo $income_note; ?></textarea>
                               <img onclick="startDictation()" src="icon/voice_type.gif" />
                            </div>
                         </div>
