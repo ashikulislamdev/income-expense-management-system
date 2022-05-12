@@ -71,8 +71,16 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
       width: 120px;
       float: right;
     }
+    .skiptranslate div select{
+      height: 30px;
+    }
+    .skiptranslate div select option{
+      font-size: 14px;
+    }
   </style>
-
+  <script>
+    document.getElementsByClassName("goog-te-gadget").innerHTML = " Test";
+  </script>
 </head>
 
 <body>
