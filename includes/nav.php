@@ -41,6 +41,20 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
   <!-- Feather JS for Icons -->
   <script src="js/feather.min.js"></script>
   <style>
+    @media print{
+      body{
+        visibility: hidden;
+      }
+      .print-area, .print-area * {
+        visibility: visible;
+      }
+      .print-area, .print-area body{
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+      }
+    }
+    
     .card a {
       color: #000;
       font-weight: 500;
@@ -78,9 +92,7 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
       font-size: 14px;
     }
   </style>
-  <script>
-    document.getElementsByClassName("goog-te-gadget").innerHTML = " Test";
-  </script>
+  
 </head>
 
 <body>
@@ -109,6 +121,7 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
 
               <a href="add_income.php" class="list-group-item list-group-item-action "><span data-feather="plus-square"></span> Add Income</a>
               <a href="manage_income.php" class="list-group-item list-group-item-action "><i class='bx bx-customize'></i> Manage Income</a>
+              <a href="receipt.php" class="list-group-item list-group-item-action "><i class='bx bx-receipt'></i> Money Receipt</a>
             <?php
           }
         ?>
@@ -135,15 +148,7 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
     <!-- Page Content -->
     <div id="page-content-wrapper">
       
-    <!-- Translation Code here -->
-    <span class="translate_sec">
-        <div class="translate" id="google_translate_element"></div>
-          <script type="text/javascript">
-              function googleTranslateElementInit() {  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');}
-          </script>
-          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    </span>
-		<!-- Translation Code End here -->
+    
 
       <nav class="navbar navbar-expand-lg navbar-light  border-bottom">
 

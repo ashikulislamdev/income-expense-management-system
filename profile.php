@@ -1,12 +1,12 @@
 <?php
 include("session.php");
-$exp_fetched = mysqli_query($con, "SELECT * FROM expenses WHERE user_id = '$userid'");
 
 if (isset($_POST['save'])) {
-    $fname = $_POST['first_name'];
-    $lname = $_POST['last_name'];
+    $fname = $_POST['firstname'];
+    $phone_no = $_POST['phone_no'];
+    $address = $_POST['address'];
 
-    $sql = "UPDATE users SET firstname = '$fname', lastname='$lname' WHERE user_id='$userid'";
+    $sql = "UPDATE users SET firstname = '$fname', phone_no='$phone_no', address='$address' WHERE user_id='$userid'";
     if (mysqli_query($con, $sql)) {
         echo "Records were updated successfully.";
     } else {
@@ -76,10 +76,10 @@ if (isset($_POST['but_upload'])) {
                                     <div class="form-group">
 
                                         <div class="col-md">
-                                            <label for="first_name">
-                                                First name
+                                            <label for="firstname">
+                                                Full name
                                             </label>
-                                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" value="<?php echo $firstname; ?>">
+                                            <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" value="<?php echo $username; ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -87,12 +87,20 @@ if (isset($_POST['but_upload'])) {
                                     <div class="form-group">
 
                                         <div class="col-md">
-                                            <label for="last_name">
-                                                Last name
+                                            <label for="phone_no">
+                                                Phone Number
                                             </label>
-                                            <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo $lastname; ?>" placeholder="Last Name">
+                                            <input type="number" class="form-control" name="phone_no" id="phone_no" value="<?php echo $phone_no; ?>" placeholder="Phone Number">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="address">
+                                        Address
+                                    </label>
+                                    <input type="address" class="form-control" name="address" id="address" value="<?php echo $address; ?>">
                                 </div>
                             </div>
                             <div class="form-group">

@@ -4,8 +4,8 @@ if (isset($_REQUEST['firstname'])) {
   if ($_REQUEST['password'] == $_REQUEST['confirm_password']) {
     $firstname = stripslashes($_REQUEST['firstname']);
     $firstname = mysqli_real_escape_string($con, $firstname);
-    $lastname = stripslashes($_REQUEST['lastname']);
-    $lastname = mysqli_real_escape_string($con, $lastname);
+    $phone_no = stripslashes($_REQUEST['phone_no']);
+    $phone_no = mysqli_real_escape_string($con, $phone_no);
 
     $email = stripslashes($_REQUEST['email']);
     $email = mysqli_real_escape_string($con, $email);
@@ -17,7 +17,7 @@ if (isset($_REQUEST['firstname'])) {
 
     $trn_date = date("Y-m-d H:i:s");
 
-    $query = "INSERT into `users` (firstname, lastname, password, email, trn_date) VALUES ('$firstname','$lastname', '" . md5($password) . "', '$email', '$trn_date')";
+    $query = "INSERT into `users` (firstname, phone_no, password, email, trn_date) VALUES ('$firstname','$phone_no', '" . md5($password) . "', '$email', '$trn_date')";
     $result = mysqli_query($con, $query);
     if ($result) {
       header("Location: login.php");
@@ -152,22 +152,22 @@ if (isset($_REQUEST['firstname'])) {
 
 <body>
   <div class="signup-form">
-    <form action="" method="POST" autocomplete="off">
+    <form action="" method="POST">
       <h2>Register</h2>
       <div class="form-group">
-        <div class="row">
-          <div class="col"><input type="text" class="form-control" name="firstname" placeholder="First Name" required="required"></div>
-          <div class="col"><input type="text" class="form-control" name="lastname" placeholder="Last Name" required="required"></div>
-        </div>
+        <input type="text" class="form-control" name="firstname" placeholder="Full Name" required>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        <input type="number" class="form-control" name="phone_no" placeholder="Phone Number" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        <input type="email" class="form-control" name="email" placeholder="Email" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required>
       </div>
       <div class="form-group">
         <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
