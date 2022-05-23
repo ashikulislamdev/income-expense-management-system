@@ -49,9 +49,8 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
         visibility: visible;
       }
       .print-area, .print-area body{
-        justify-content: center;
-        align-items: center;
-        margin: auto;
+        margin-top: -480px;
+        margin-left: -100px !important;
       }
     }
     

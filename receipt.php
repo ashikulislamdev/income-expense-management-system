@@ -155,7 +155,7 @@
         <div class="col-12 mx-auto print-area" style="width: 800px;">
             <div class="card p-0" style="border-radius: 0px;">
                 <div class="card-header p-2 px-3" style="background-color: #c7c7c7; border-radius: 0px;">
-                    <h5 class="float-left mb-0">Receipt &nbsp;</h5> ID : <?php echo "#".$receipt_id + 1 ?>
+                    <h5 class="float-left mb-0">Receipt &nbsp;</h5> ID : <?php echo "#".$receipt_id ?>
                     <div class="float-right"><?php echo $receipt_date ?></div>
                 </div>
                 <div class="card-body">
