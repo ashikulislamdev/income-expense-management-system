@@ -214,6 +214,17 @@
                             </tr>                                                          
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-6">
+                            
+                        </div>
+                        <div class="col-6">
+                            <div class="text-right">
+                                <br><br><br>
+                                <h5><span class="px-2" style="border-top: 1px solid black;"><?php echo $username ?></span></h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

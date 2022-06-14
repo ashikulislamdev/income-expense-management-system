@@ -120,7 +120,7 @@
                 
                <div class="row justify-content-center pt-2">
                   <h4>All Expenses Record</h4>
-                  <div class="col-12" style="min-width: 700px;">
+                  <div class="col-12">
                      <table class="table table-hover table-bordered">
                         <thead>
                            <tr class="text-center">

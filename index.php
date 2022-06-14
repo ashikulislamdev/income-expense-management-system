@@ -68,7 +68,7 @@
                               <th>#</th>
                               <th>User Name</th>
                               <th>Email</th>
-                              <th>Anything</th>
+                              <th>Phone</th>
                               <th>Profile</th>
                               <th colspan="2">Action</th>
                            </tr>
@@ -77,9 +77,9 @@
                           <?php $count=1; while ($row = mysqli_fetch_array($users_result)) { ?>
                           <tr>
                              <td><?php echo $count;?></td>
-                             <td><?php echo $row["firstname"]." ".$row["lastname"]; ?></td>
+                             <td><?php echo $row["firstname"]; ?></td>
                              <td><?php echo $row["email"]; ?> </td>
-                             <td><?php echo "String"; ?></td>
+                             <td><?php echo $row["phone_no"]; ?></td>
                              <td><img src="<?php echo "uploads/".$row["profile_path"]; ?>" width="57px" ></td>
                              <td class="text-center">
                                 <a href="#" class="btn btn-primary btn-sm" style="border-radius:0%;">Button</a>
@@ -106,27 +106,32 @@
                       <div class="row">
                         <div class="col text-center">
                           <a href="add_expense.php"><img src="icon/addex.png" width="57px" />
-                            <p>Add Expenses</p>
+                            <p class="language_en" id="language_en">Add Expenses</p>
+                            <p class="language_bn" id="language_bn">খরচ যুক্ত করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
                           <a href="manage_expense.php"><img src="icon/maex.png" width="57px" />
-                            <p>Manage Expenses</p>
+                            <p class="language_en" id="language_en">Manage Expenses</p>
+                            <p class="language_bn" id="language_bn">খরচ ম্যানেজ করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
                           <a href="add_income.php"><img src="icon/add-income.png" width="57px" />
-                            <p>Add Income</p>
+                            <p class="language_en" id="language_en">Add Income</p>
+                            <p class="language_bn" id="language_bn">আয় যুক্ত করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
                           <a href="manage_income.php"><img src="icon/manage-income.png" width="57px" />
-                            <p>Manage Income</p>
+                            <p class="language_en" id="language_en">Manage Income</p>
+                            <p class="language_bn" id="language_bn">আয় ম্যানেজ করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
                           <a href="profile.php"><img src="icon/prof.png" width="57px" />
-                            <p>Profile</p>
+                            <p class="language_en" id="language_en">Profile</p>
+                            <p class="language_bn" id="language_bn">প্রোফাইল</p>
                           </a>
                         </div>
                       </div>
@@ -310,6 +315,9 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+
+
+    
   </script>
   <script>
     feather.replace()
