@@ -53,6 +53,19 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
         margin-left: -100px !important;
       }
     }
+
+    @media print{
+      body{
+        visibility: hidden;
+      }
+      .print-area-2, .print-area-2 * {
+        visibility: visible;
+      }
+      .print-area-2, .print-area-2 body{
+        margin-top: -100px;
+        margin-right: 120px !important;
+      }
+    }
     
     .card a {
       color: #000;

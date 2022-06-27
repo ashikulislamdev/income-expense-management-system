@@ -63,7 +63,7 @@
                         if (mysqli_num_rows($filter_res) > 0) {
                             ?>
 
-                                <div class="row justify-content-center pt-2">
+                                <div class="row justify-content-center pt-2 print-area-2">
 
                                   <div class="col-md-12 text-center">
                                       <h5>Income Data <?php echo $from_date; ?> to <?php echo $to_date; ?> </h5>
@@ -97,7 +97,10 @@
                                      </table>
                                   </div>
                                </div>
-
+                               
+                               <div style="float: right;">
+                                    <a class="btn btn-success" onclick="window.print();">Print Report</a>
+                                </div>
                                <br>
                                <br>
                             <?php 
