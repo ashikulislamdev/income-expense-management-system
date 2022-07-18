@@ -11,10 +11,10 @@
 
 
    if (isset($_POST['add'])) {
-       $expenseamount = $_POST['expenseamount'];
-       $expensedate = $_POST['expensedate'];
-       $expensecategory = $_POST['expensecategory'];
-       $expense_note = $_POST['expense_note'];
+       $expenseamount = htmlentities(addslashes($_POST['expenseamount']));
+       $expensedate = htmlentities(addslashes($_POST['expensedate']));
+       $expensecategory = htmlentities(addslashes($_POST['expensecategory']));
+       $expense_note = htmlentities(addslashes($_POST['expense_note']));
    
        $expenses = "INSERT INTO expenses (user_id, expense,expensedate,expensecategory,expense_note) VALUES ('$userid', '$expenseamount','$expensedate','$expensecategory','$expense_note')";
        $result = mysqli_query($con, $expenses) or die("Something Went Wrong!");
@@ -23,10 +23,10 @@
    
    if (isset($_POST['update'])) {
        $id = $_GET['edit'];
-       $expenseamount = $_POST['expenseamount'];
-       $expensedate = $_POST['expensedate'];
-       $expensecategory = $_POST['expensecategory'];
-       $expense_note = $_POST['expense_note'];
+       $expenseamount = htmlentities(addslashes($_POST['expenseamount']));
+       $expensedate = htmlentities(addslashes($_POST['expensedate']));
+       $expensecategory = htmlentities(addslashes($_POST['expensecategory']));
+       $expense_note = htmlentities(addslashes($_POST['expense_note']));
    
        $sql = "UPDATE expenses SET expense='$expenseamount', expensedate='$expensedate', expensecategory='$expensecategory', expense_note='$expense_note' WHERE user_id='$userid' AND expense_id='$id'";
        if (mysqli_query($con, $sql)) {
@@ -40,10 +40,10 @@
    
    if (isset($_POST['delete'])) {
        $id = $_GET['delete'];
-       $expenseamount = $_POST['expenseamount'];
-       $expensedate = $_POST['expensedate'];
-       $expensecategory = $_POST['expensecategory'];
-       $expense_note = $_POST['expense_note'];
+       $expenseamount = htmlentities(addslashes($_POST['expenseamount']));
+       $expensedate = htmlentities(addslashes($_POST['expensedate']));
+       $expensecategory = htmlentities(addslashes($_POST['expensecategory']));
+       $expense_note = htmlentities(addslashes($_POST['expense_note']));
    
        $sql = "DELETE FROM expenses WHERE user_id='$userid' AND expense_id='$id'";
        if (mysqli_query($con, $sql)) {
@@ -116,6 +116,8 @@
                            <div class="col-md-6">
                               <select name="expensecategory" id="expensecategory" class="form-control col-sm-12 js-example-basic-single" required>
                                  <option value=""></option>
+                                 
+                                    <option value="মালিকের উত্তোলন">মালিকের উত্তোলন</option>
                         
                         <?php
                            $sql = "SELECT * FROM expense_category WHERE user_id='$userid' ";

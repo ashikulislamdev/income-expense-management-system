@@ -17,7 +17,7 @@
                                     <label for="password">
                                         Enter Current Password
                                     </label>
-                                    <input type="password" class="form-control" name="curr_password" id="curr_password" placeholder="New Password" required>
+                                    <input type="password" class="form-control" name="curr_password" id="curr_password" placeholder="Current Password" required>
                                 </div>
                             </div>
                             <div class="form-group">

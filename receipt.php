@@ -151,8 +151,8 @@
             mysqli_query($con, "UPDATE users SET receipt_id=$new_receipt_id WHERE user_id='$userid'");
 
     ?>
-    <div id="printSection ">
-        <div class="col-12 mx-auto print-area" style="width: 800px;">
+    <div id="printSection "> 
+        <div class="col-12 mx-auto print-area" style="width: 1000px;">
             <div class="card p-0" style="border-radius: 0px;">
                 <div class="card-header p-2 px-3" style="background-color: #c7c7c7; border-radius: 0px;">
                     <h5 class="float-left mb-0">Receipt &nbsp;</h5> ID : <?php echo "#".$receipt_id ?>
@@ -160,23 +160,23 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-1">
-                        <div class="col-3 text-center">
-                            <img src="<?php echo $userprofile ?>" style="height: 80px;">
+                        <div class="col-7">
+                            <div class="text-center">
+                                <img src="<?php echo $userprofile ?>" style="height: 80px;">
+                            </div>
+                            <h4 class="m-0 text-primary"><?php echo $username ?></h4>
+                            <p class="m-0"><?php echo $address ?></p>
+                            <p class="m-0"><?php echo $phone_no ?></p>
+                            <p class="m-0">Email: <?php echo $useremail ?></p>
                         </div>
                         <div class="col-5">
-                            <h5><?php echo $username ?></h5>
-                            <p class="m-0"><?php echo $phone_no ?></p>
-                            <p class="m-0"><?php echo $address ?></p>
-                            <p class="m-0"><?php echo $useremail ?></p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="m-0">Customer:</h5>
-                            <p class="m-0"><?php echo $customer_name ?> </p>
+                            <h5 class="m-0 text-primary">Customer:</h5>
+                            <p class="m-0" style="font-weight: bold;"><?php echo $customer_name ?> </p>
                             <p class="m-0">Phone: <?php echo $customer_phone ?></p>
                             <p class="m-0"><?php echo $customer_address ?></p>
                         </div>
                     </div>
-                    
+                    <h5 class="text-center pbt-2" style="font-weight: bold;">Money Receipt</h5>
                     <table class="table table-bordered text-center">
                         <thead>
                             <tr>
@@ -193,7 +193,7 @@
                             ?>
                             <tr>
                                 <td><?php echo $i+'1'; ?></td>
-                                <td align="left">
+                                <td align="left" style="font-weight: bold;">
                                     <?php echo $item_name;  ?>
                                 </td>
                                 <td><?php echo $item_price; ?></td>

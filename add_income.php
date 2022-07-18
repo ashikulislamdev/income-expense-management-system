@@ -11,10 +11,10 @@
 
 
    if (isset($_POST['add'])) {
-       $incomeamount = $_POST['incomeamount'];
-       $incomedate = $_POST['incomedate'];
-       $incomecategory = $_POST['incomecategory'];
-       $income_note = $_POST['income_note'];
+       $incomeamount = htmlentities(addslashes($_POST['incomeamount']));
+       $incomedate = htmlentities(addslashes($_POST['incomedate']));
+       $incomecategory = htmlentities(addslashes($_POST['incomecategory']));
+       $income_note = htmlentities(addslashes($_POST['income_note']));
    
        $incomes = "INSERT INTO incomes (user_id, income,incomedate,incomecategory, income_note) VALUES ('$userid', '$incomeamount','$incomedate','$incomecategory','$income_note')";
        $result = mysqli_query($con, $incomes) or die("Something Went Wrong!");
@@ -23,10 +23,10 @@
 
    if (isset($_POST['update'])) {
        $id = $_GET['edit'];
-       $incomeamount = $_POST['incomeamount'];
-       $incomedate = $_POST['incomedate'];
-       $incomecategory = $_POST['incomecategory'];
-       $income_note = $_POST['income_note'];
+       $incomeamount = htmlentities(addslashes($_POST['incomeamount']));
+       $incomedate = htmlentities(addslashes($_POST['incomedate']));
+       $incomecategory = htmlentities(addslashes($_POST['incomecategory']));
+       $income_note = htmlentities(addslashes($_POST['income_note']));
    
        $sql = "UPDATE incomes SET income='$incomeamount', incomedate='$incomedate', incomecategory='$incomecategory', income_note='$income_note' WHERE user_id='$userid' AND income_id='$id'";
        if (mysqli_query($con, $sql)) {
@@ -57,10 +57,10 @@
 
    if (isset($_POST['delete'])) {
        $id = $_GET['delete'];
-       $incomeamount = $_POST['incomeamount'];
-       $incomedate = $_POST['incomedate'];
-       $incomecategory = $_POST['incomecategory'];
-       $income_note = $_POST['income_note'];
+       $incomeamount = htmlentities(addslashes($_POST['incomeamount']));
+       $incomedate = htmlentities(addslashes($_POST['incomedate']));
+       $incomecategory = htmlentities(addslashes($_POST['incomecategory']));
+       $income_note = htmlentities(addslashes($_POST['income_note']));
    
        $sql = "DELETE FROM incomes WHERE user_id='$userid' AND income_id='$id'";
        if (mysqli_query($con, $sql)) {

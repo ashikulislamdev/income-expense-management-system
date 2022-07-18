@@ -46,6 +46,14 @@
   $expenses_last_day_amount = $expenses_last_day_amount['last_day_expenses'];
 
 
+  // 
+  $self_profit = mysqli_query($con, "SELECT SUM(expense) AS full_profits FROM `expenses` WHERE `user_id` = '$userid'");
+
+  //echo $self_profit; die();
+  $self_profit = mysqli_fetch_assoc($self_profit); 
+  $self_profit = $self_profit['full_profits'];
+
+
   $all_users = "SELECT * FROM users";
   $users_result = $con->query($all_users);
 
@@ -248,6 +256,21 @@
                               <h5 class="text-light">Today</h5>
                             </div>
                             <h5 class="text-white my-2">Cash - <?php echo $income_last_day_amount - $expenses_last_day_amount; ?> TK</h5>
+                            <a href="daily_subtotal.php" class="btn btn-sm">Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 my-2">
+                    <div class="card p-1 student_d_card">
+                        <div class="border rounded p-2">
+                            <div class="d-flex">
+                              <div class="mr-auto">
+                                  <i class='bx bxs-calendar-minus'></i>
+                              </div>
+                              <h5 class="text-light">Profit</h5>
+                            </div>
+                            <h5 class="text-white my-2">Total - <?php echo $self_profit; ?> TK</h5>
                             <a href="daily_subtotal.php" class="btn btn-sm">Report</a>
                         </div>
                     </div>
