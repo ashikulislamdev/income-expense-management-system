@@ -46,12 +46,12 @@
   $expenses_last_day_amount = $expenses_last_day_amount['last_day_expenses'];
 
 
-  // 
-  $self_profit = mysqli_query($con, "SELECT SUM(expense) AS full_profits FROM `expenses` WHERE `user_id` = '$userid'");
+  // à¦®à¦¾à¦²à¦¿à¦•à§‡à¦° à¦‰à¦¤à§à¦¤à§‹à¦²à¦¨ মানে মালিকের উত্তোলন latin1_swedish_ci EntrepreneurWithdrawal 
 
-  //echo $self_profit; die();
-  $self_profit = mysqli_fetch_assoc($self_profit); 
-  $self_profit = $self_profit['full_profits'];
+                                  // Warning, Edit carefully
+  $self_profit = mysqli_query($con, "SELECT SUM(expense) AS full_profit FROM `expenses` WHERE expensecategory='????' AND `user_id` = '$userid'");
+  $self_profit = mysqli_fetch_assoc($self_profit);
+  $self_profit = $self_profit['full_profit'];
 
 
   $all_users = "SELECT * FROM users";
@@ -113,18 +113,6 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col text-center">
-                          <a href="add_expense.php"><img src="icon/addex.png" width="57px" />
-                            <p class="language_en" id="language_en">Add Expenses</p>
-                            <p class="language_bn" id="language_bn">খরচ যুক্ত করুন</p>
-                          </a>
-                        </div>
-                        <div class="col text-center">
-                          <a href="manage_expense.php"><img src="icon/maex.png" width="57px" />
-                            <p class="language_en" id="language_en">Manage Expenses</p>
-                            <p class="language_bn" id="language_bn">খরচ ম্যানেজ করুন</p>
-                          </a>
-                        </div>
-                        <div class="col text-center">
                           <a href="add_income.php"><img src="icon/add-income.png" width="57px" />
                             <p class="language_en" id="language_en">Add Income</p>
                             <p class="language_bn" id="language_bn">আয় যুক্ত করুন</p>
@@ -134,6 +122,18 @@
                           <a href="manage_income.php"><img src="icon/manage-income.png" width="57px" />
                             <p class="language_en" id="language_en">Manage Income</p>
                             <p class="language_bn" id="language_bn">আয় ম্যানেজ করুন</p>
+                          </a>
+                        </div>
+                        <div class="col text-center">
+                          <a href="add_expense.php"><img src="icon/addex.png" width="57px" />
+                            <p class="language_en" id="language_en">Add Expenses</p>
+                            <p class="language_bn" id="language_bn">খরচ যুক্ত করুন</p>
+                          </a>
+                        </div>
+                        <div class="col text-center">
+                          <a href="manage_expense.php"><img src="icon/maex.png" width="57px" />
+                            <p class="language_en" id="language_en">Manage Expenses</p>
+                            <p class="language_bn" id="language_bn">খরচ ম্যানেজ করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
@@ -182,7 +182,7 @@
                               </div>
                               <h5 class="text-light">Expense</h5>
                             </div>
-                            <h5 class="text-white my-2">Total - <?php echo $expence_amount; ?> TK</h5>
+                            <h5 class="text-white my-2">Total - <?php echo $expence_amount - $self_profit; ?> TK</h5>
                             <a href="manage_expense.php" class="btn btn-sm">View All</a>
                         </div>
                     </div>
@@ -270,8 +270,8 @@
                               </div>
                               <h5 class="text-light">Profit</h5>
                             </div>
-                            <h5 class="text-white my-2">Total - <?php echo $self_profit; ?> TK</h5>
-                            <a href="daily_subtotal.php" class="btn btn-sm">Report</a>
+                            <h5 class="text-white my-2">Total - <?php echo $self_profit ? $self_profit : '0'; ?> TK</h5>
+                            <a href="view-withdraw.php?ctgry=en_wdr" class="btn btn-sm">Report</a>
                         </div>
                     </div>
                 </div>

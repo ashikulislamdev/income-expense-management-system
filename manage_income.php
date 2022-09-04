@@ -84,15 +84,15 @@
                                            </tr>
                                         </thead>
                                         <tbody id="dataTable">
-                                            <?php $count=1; while ($row = mysqli_fetch_array($filter_res)) { ?>
+                                            <?php $count=mysqli_num_rows($filter_res); while ($row = mysqli_fetch_array($filter_res)) { ?>
                                             <tr>
-                                               <td><?php echo $count;?></td>
+                                               <td><?php echo $count--;?></td>
                                                <td><?php echo $row['incomedate']; ?></td>
                                                <td><?php echo $row['income']; ?> TK</td>
                                                <td><?php echo $row['incomecategory']; ?></td>
                                                <td><?php echo $row['income_note']; ?></td>
                                             </tr>
-                                            <?php $count++; } ?>
+                                            <?php } ?>
                                         </tbody>
                                      </table>
                                   </div>
@@ -123,9 +123,9 @@
                            </tr>
                         </thead>
                         <tbody id="dataTable">
-	                        <?php $count=1; while ($row = mysqli_fetch_array($income_fetched)) { ?>
+	                        <?php $count=mysqli_num_rows($income_fetched); while ($row = mysqli_fetch_array($income_fetched)) { ?>
 	                        <tr>
-	                           <td><?php echo $count;?></td>
+	                           <td><?php echo $count--;?></td>
 	                           <td><?php echo $row['incomedate']; ?></td>
 	                           <td><?php echo $row['income']; ?> TK</td>
 	                           <td><?php echo $row['incomecategory']; ?></td>
@@ -137,7 +137,7 @@
 	                              <a href="add_income.php?delete=<?php echo $row['income_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
 	                           </td>
 	                        </tr>
-	                        <?php $count++; } ?>
+	                        <?php } ?>
                         </tbody>
                      </table>
                   </div>

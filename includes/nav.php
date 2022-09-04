@@ -133,11 +133,13 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
           }else{
             ?>
               <a href="index.php" class="list-group-item list-group-item-action sidebar-active"><span data-feather="home"></span> Dashboard</a>
-              <a href="add_expense.php" class="list-group-item list-group-item-action "><span data-feather="minus-square"></span> Add Expenses</a>
-              <a href="manage_expense.php" class="list-group-item list-group-item-action "><i class='bx bx-slider-alt'></i> Manage Expenses</a>
 
               <a href="add_income.php" class="list-group-item list-group-item-action "><span data-feather="plus-square"></span> Add Income</a>
               <a href="manage_income.php" class="list-group-item list-group-item-action "><i class='bx bx-customize'></i> Manage Income</a>
+              
+              <a href="add_expense.php" class="list-group-item list-group-item-action "><span data-feather="minus-square"></span> Add Expenses</a>
+              <a href="manage_expense.php" class="list-group-item list-group-item-action "><i class='bx bx-slider-alt'></i> Manage Expenses</a>
+
               <a href="receipt.php" class="list-group-item list-group-item-action "><i class='bx bx-receipt'></i> Money Receipt</a>
             <?php
           }
@@ -173,12 +175,12 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
           <span data-feather="menu"></span>
         </button>
 
-        <div class="mt-2 mr-2" style="float: right;">
+        <!-- <div class="mt-2 mr-2" style="float: right;">
           <select class="form-select form-select-sm">
             <option class="select_language_bn" id="select_language_bn" value="bn">BN</option>
             <option class="select_language_en" id="select_language_en" value="en">EN</option>
           </select>
-        </div>
+        </div> -->
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           

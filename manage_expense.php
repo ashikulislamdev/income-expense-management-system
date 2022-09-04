@@ -2,7 +2,8 @@
     include("session.php");
 
     //get all data query 
-    $exp_fetched = mysqli_query($con, "SELECT * FROM expenses WHERE user_id = '$userid' ORDER BY expensedate DESC");
+    $exp_fetched = mysqli_query($con, "SELECT * FROM expenses WHERE `expensecategory`!='মালিকের উত্তোলন' AND user_id = '$userid' ORDER BY expensedate DESC");
+
 
     //get monthly data 
     if (isset($_GET['data']) && $_GET['data']=='last_month') {
@@ -56,6 +57,58 @@
                     </form>
                   </div> -->
                 </div>
+
+                <?php 
+                    if (isset($_GET['ctgry']) && $_GET['ctgry']=='en_wdr') {
+
+                        $all_withdrowal = mysqli_query($con, "SELECT * FROM expenses WHERE expensecategory='মালিকের উত্তোলন' AND user_id = '$userid' ORDER BY expense_id DESC");
+
+                        
+                        ?>
+
+                        <div class="row justify-content-center pt-2 print-area-2">
+
+                          <div class="col-md-12 text-center">
+                              <h5>মালিকের উত্তোলনসমূহ</h5>
+                          </div>
+
+                          <div class="col-md-12">
+                             <table class="table table-hover table-bordered">
+                                <thead>
+                                   <tr class="text-center">
+                                      <th>#</th>
+                                      <th>Date</th>
+                                      <th>Amount</th>
+                                      <th>Expense Category</th>
+                                      <th>Expense Note</th>
+                                   </tr>
+                                </thead>
+                                <tbody id="dataTable">
+                                    <?php $count = 1; while ($row = mysqli_fetch_array($all_withdrowal)) { ?>
+                                    <tr>
+                                       <td><?php echo $count++ ;?></td>
+                                       <td><?php echo $row['expensedate']; ?></td>
+                                       <td><?php echo $row['expense']; ?> TK</td>
+                                       <td><?php echo $row['expensecategory']; ?></td>
+                                       <td><?php echo $row['expense_note']; ?></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                             </table>
+                          </div>
+                       </div>
+                       
+                        <!-- <div style="float: right;">
+                            <a class="btn btn-success" onclick="window.print();">Print Report</a>
+                        </div> -->
+                       <br>
+                       <br>
+                    <?php 
+                        
+                    }
+                ?>
+
+
                 <?php 
                     if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
                         $from_date = $_GET['from_date'];
@@ -94,15 +147,15 @@
                                            </tr>
                                         </thead>
                                         <tbody id="dataTable">
-                                            <?php $count=1; while ($row = mysqli_fetch_array($filter_res)) { ?>
+                                            <?php $count = mysqli_num_rows($filter_res); while ($row = mysqli_fetch_array($filter_res)) { ?>
                                             <tr>
-                                               <td><?php echo $count;?></td>
+                                               <td><?php echo $count-- ;?></td>
                                                <td><?php echo $row['expensedate']; ?></td>
                                                <td><?php echo $row['expense']; ?> TK</td>
                                                <td><?php echo $row['expensecategory']; ?></td>
                                                <td><?php echo $row['expense_note']; ?></td>
                                             </tr>
-                                            <?php $count++; } ?>
+                                            <?php } ?>
                                         </tbody>
                                      </table>
                                   </div>
@@ -121,6 +174,8 @@
                 ?>
 
                 
+
+
                <div class="row justify-content-center pt-2">
                   <h4>All Expenses Record</h4>
                   <div class="col-12">
@@ -136,9 +191,9 @@
                            </tr>
                         </thead>
                         <tbody id="dataTable">
-                            <?php $count=1; while ($row = mysqli_fetch_array($exp_fetched)) { ?>
+                            <?php $count= mysqli_num_rows($exp_fetched); while ($row = mysqli_fetch_array($exp_fetched)) { ?>
                             <tr>
-                               <td><?php echo $count;?></td>
+                               <td><?php echo $count--;?></td>
                                <td><?php echo $row['expensedate']; ?></td>
                                <td><?php echo $row['expense']; ?> TK</td>
                                <td><?php echo $row['expensecategory']; ?></td>
@@ -150,7 +205,7 @@
                                   <a href="add_expense.php?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
                                </td>
                             </tr>
-                            <?php $count++; } ?>
+                            <?php } ?>
                         </tbody>
                      </table>
                   </div>
