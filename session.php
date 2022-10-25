@@ -7,7 +7,7 @@ exit();
 }
 
 $sess_email = $_SESSION["email"];
-$sql = "SELECT user_id, firstname, phone_no, email, address, profile_path, status, receipt_id FROM users WHERE email = '$sess_email'";
+$sql = "SELECT user_id, firstname, phone_no, email, password, address, profile_path, status, receipt_id FROM users WHERE email = '$sess_email'";
 $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
@@ -17,6 +17,7 @@ if ($result->num_rows > 0) {
     $username =$row["firstname"];
     $phone_no = $row["phone_no"];
     $useremail=$row["email"];
+    $password=md5($row["password"]);
     $address=$row["address"];
     $userprofile="uploads/".$row["profile_path"];
     $user_type=$row["status"];

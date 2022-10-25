@@ -69,8 +69,11 @@
           ?>
             <div class="container-fluid">
                 <div class="justify-content-center pt-2">
-                  <div class="col-md-12">
-                     <table class="table table-hover table-bordered">
+                  <div class="col-md-12" style="overflow:scroll;">
+                  <div class="mr-auto p-2">
+                      <a href="iems-register.php" class="btn btn-primary">Add New Expance</a>
+                  </div>
+                     <table class="table table-hover table-bordered" style="min-width: 700px;">
                         <thead>
                            <tr class="text-center">
                               <th>#</th>
@@ -90,15 +93,59 @@
                              <td><?php echo $row["phone_no"]; ?></td>
                              <td><img src="<?php echo "uploads/".$row["profile_path"]; ?>" width="57px" ></td>
                              <td class="text-center">
-                                <a href="#" class="btn btn-primary btn-sm" style="border-radius:0%;">Button</a>
+                             <a type="button" data-toggle="modal" data-target="#confirmEditModal" class="btn btn-primary btn-sm text-white" style="border-radius:0%;">Details</a>
                              </td>
                              <td class="text-center">
-                                <a href="#" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
+                                <a type="button" data-toggle="modal" data-target="#confirmDeleteModal" class="btn btn-danger btn-sm text-white" style="border-radius:0%;">Delete</a>
                              </td>
                           </tr>
                           <?php $count++; } ?>
                         </tbody>
                      </table>
+
+                      <!-- Delete Modal -->
+                      <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="text-danger">Are you sure? You want to delete this user!</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <!--Edit Modal -->
+                      <div class="modal fade" id="confirmEditModal" tabindex="-1" role="dialog" aria-labelledby="EditModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="EditModalLabel">Edit User Data</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="text-danger">Are you sure? You want to edit this user!</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                   </div>
                </div>
             </div>

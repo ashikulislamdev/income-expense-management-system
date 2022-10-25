@@ -8,7 +8,7 @@
       ?>
 
             <div class="container-fluid">
-                <h5>Hi <?php echo $firstname ?>! You can change your password here</h5>
+                <h5>Hi <?php echo $username ?>! You can change your password here</h5>
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <form class="form" action="" method="POST" id="registrationForm" autocomplete="off">
