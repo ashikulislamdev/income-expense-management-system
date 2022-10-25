@@ -13,7 +13,7 @@ if (isset($_POST['email'])) {
   $rows = mysqli_num_rows($result);
   if ($rows == 1) {
     $_SESSION['email'] = $email;
-    header("Location: index.php");
+    header("Location: index");
   } else {
     $errormsg  = "Wrong";
   }
@@ -121,7 +121,7 @@ if (isset($_POST['email'])) {
         
       </div>
     </form>
-    <!-- <p class="text-center">Don't have an account?<a href="iems-register.php" class="text-danger"> Register Here</a></p> -->
+    <!-- <p class="text-center">Don't have an account?<a href="iems-register" class="text-danger"> Register Here</a></p> -->
   </div>
 </body>
 <!-- Bootstrap core JavaScript -->

@@ -2,6 +2,10 @@
     include("session.php");
 
     //get all data query 
+
+      // à¦®à¦¾à¦²à¦¿à¦•à§‡à¦° à¦‰à¦¤à§à¦¤à§‹à¦²à¦¨ মানে মালিকের উত্তোলন latin1_swedish_ci EntrepreneurWithdrawal (মালিকের উত্তোলন ta localhost E kaj kore nah)
+
+                                  // Warning, Edit carefully
     $exp_fetched = mysqli_query($con, "SELECT * FROM expenses WHERE `expensecategory`!='মালিকের উত্তোলন' AND user_id = '$userid' ORDER BY expensedate DESC");
 
 
@@ -25,7 +29,7 @@
                <hr>
                 <div class="d-flex" style="min-width: 700px;">
                   <div class="mr-auto p-2">
-                      <a href="add_expense.php" class="btn btn-primary">Add New Expance</a>
+                      <a href="add_expense" class="btn btn-primary">Add New Expance</a>
                   </div>
                   <div class="mr-auto p-2">
                       <form class="form-inline ml-auto" method="GET">
@@ -199,10 +203,10 @@
                                <td><?php echo $row['expensecategory']; ?></td>
                                <td><?php echo $row['expense_note']; ?></td>
                                <td class="text-center">
-                                  <a href="add_expense.php?edit=<?php echo $row['expense_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
+                                  <a href="add_expense?edit=<?php echo $row['expense_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
                                </td>
                                <td class="text-center">
-                                  <a href="add_expense.php?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
+                                  <a href="add_expense?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
                                </td>
                             </tr>
                             <?php } ?>

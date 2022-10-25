@@ -69,7 +69,7 @@
                                 $res2 = mysqli_query($con, $sql2);
 
                                 if ($res2==true) {
-                                    printf("<script>location.href='profile.php'</script>");
+                                    printf("<script>location.href='profile'</script>");
                                 }else{
                                     echo "Password Doesn't updated";
                                 }

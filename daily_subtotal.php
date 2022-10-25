@@ -150,7 +150,7 @@
 
       </div>
           <div class="float-right pt-1 pr-2">
-            <a class="btn btn-success" href="index.php">Go-to Home</a>
+            <a class="btn btn-success" href="index">Go-to Home</a>
             <a class="btn btn-primary" onclick="window.print();">Print</a>
           </div>
     </div>

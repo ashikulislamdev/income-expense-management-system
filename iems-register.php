@@ -20,7 +20,7 @@ if (isset($_REQUEST['firstname'])) {
     $query = "INSERT into `users` (firstname, phone_no, password, email, trn_date) VALUES ('$firstname','$phone_no', '" . md5($password) . "', '$email', '$trn_date')";
     $result = mysqli_query($con, $query);
     if ($result) {
-      header("Location: login.php");
+      header("Location: login");
     }
   } else {
     echo ("ERROR: Please Check Your Password & Confirmation password");
@@ -176,7 +176,7 @@ if (isset($_REQUEST['firstname'])) {
         <button type="submit" class="btn btn-danger btn-lg btn-block" style="border-radius:0%;">Register</button>
       </div>
     </form>
-    <div class="text-center">Already have an account? <a class="text-success" href="login.php">Login Here</a></div>
+    <div class="text-center">Already have an account? <a class="text-success" href="login">Login Here</a></div>
   </div>
 </body>
 <!-- Bootstrap core JavaScript -->

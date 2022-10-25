@@ -128,38 +128,38 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
         <?php 
           if ($user_type==1) {
             ?>
-              <a href="index.php" class="list-group-item list-group-item-action sidebar-active"><span data-feather="home"></span> Manage Users</a>
+              <a href="index" class="list-group-item list-group-item-action sidebar-active"><span data-feather="home"></span> Manage Users</a>
             <?php
           }else{
             ?>
-              <a href="index.php" class="list-group-item list-group-item-action sidebar-active"><span data-feather="home"></span> Dashboard</a>
+              <a href="index" class="list-group-item list-group-item-action sidebar-active"><span data-feather="home"></span> Dashboard</a>
 
-              <a href="add_income.php" class="list-group-item list-group-item-action "><span data-feather="plus-square"></span> Add Income</a>
-              <a href="manage_income.php" class="list-group-item list-group-item-action "><i class='bx bx-customize'></i> Manage Income</a>
+              <a href="add_income" class="list-group-item list-group-item-action "><span data-feather="plus-square"></span> Add Income</a>
+              <a href="manage_income" class="list-group-item list-group-item-action "><i class='bx bx-customize'></i> Manage Income</a>
               
-              <a href="add_expense.php" class="list-group-item list-group-item-action "><span data-feather="minus-square"></span> Add Expenses</a>
-              <a href="manage_expense.php" class="list-group-item list-group-item-action "><i class='bx bx-slider-alt'></i> Manage Expenses</a>
+              <a href="add_expense" class="list-group-item list-group-item-action "><span data-feather="minus-square"></span> Add Expenses</a>
+              <a href="manage_expense" class="list-group-item list-group-item-action "><i class='bx bx-slider-alt'></i> Manage Expenses</a>
 
-              <a href="receipt.php" class="list-group-item list-group-item-action "><i class='bx bx-receipt'></i> Money Receipt</a>
+              <a href="receipt" class="list-group-item list-group-item-action "><i class='bx bx-receipt'></i> Money Receipt</a>
             <?php
           }
         ?>
       </div>
       <div class="sidebar-heading">Settings </div>
       <div class="list-group list-group-flush">
-        <a href="profile.php" class="list-group-item list-group-item-action"><span data-feather="user"></span> Profile</a>
+        <a href="profile" class="list-group-item list-group-item-action"><span data-feather="user"></span> Profile</a>
         
         <!-- <select class="list-group-item list-group-item-action" onchange="set_language()" name="language">
           <option value="en">ENGLISH</option>
           <option value="bn">বাংলা</option>
         </select> -->
 
-        <a href="logout.php" class="list-group-item list-group-item-action "><span data-feather="power"></span> Logout</a>
+        <a href="logout" class="list-group-item list-group-item-action "><span data-feather="power"></span> Logout</a>
       </div>
 
       <div class="sidebar-heading">About</div>
       <div class="list-group list-group-flush">
-        <a href="about-us.php" class="list-group-item list-group-item-action"><i class='bx bx-user-pin' ></i>About Us</a>
+        <a href="about-us" class="list-group-item list-group-item-action"><i class='bx bx-user-pin' ></i>About Us</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -190,10 +190,10 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
                 <img class="img img-fluid rounded-circle" src="<?php echo $userprofile ?>" width="25">
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="profile.php">Your Profile</a>
-                <a class="dropdown-item" href="change_password.php">Change Password</a>
+                <a class="dropdown-item" href="profile">Your Profile</a>
+                <a class="dropdown-item" href="change_password">Change Password</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="logout.php">Logout</a>
+                <a class="dropdown-item" href="logout">Logout</a>
               </div>
             </li>
           </ul>

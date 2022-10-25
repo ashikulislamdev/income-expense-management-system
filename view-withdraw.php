@@ -47,10 +47,10 @@
                                        <td><?php echo $row['expensecategory']; ?></td>
                                        <td><?php echo $row['expense_note']; ?></td>
                                        <td class="text-center">
-                                          <a href="add_expense.php?edit=<?php echo $row['expense_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
+                                          <a href="add_expense?edit=<?php echo $row['expense_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
                                        </td>
                                        <td class="text-center">
-                                          <a href="add_expense.php?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
+                                          <a href="add_expense?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
                                        </td>
                                     </tr>
                                     <?php } ?>

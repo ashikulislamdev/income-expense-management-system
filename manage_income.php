@@ -25,7 +25,7 @@
 
                <div class="d-flex" style="min-width: 700px;">
                   <div class="mr-auto p-2">
-                      <a href="add_income.php" class="btn btn-primary">Add New Income</a>
+                      <a href="add_income" class="btn btn-primary">Add New Income</a>
                   </div>
 
                   <div class="mr-auto p-2">
@@ -131,10 +131,10 @@
 	                           <td><?php echo $row['incomecategory']; ?></td>
 	                           <td><?php echo $row['income_note']; ?></td>
 	                           <td class="text-center">
-	                              <a href="add_income.php?edit=<?php echo $row['income_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
+	                              <a href="add_income?edit=<?php echo $row['income_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
 	                           </td>
 	                           <td class="text-center">
-	                              <a href="add_income.php?delete=<?php echo $row['income_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
+	                              <a href="add_income?delete=<?php echo $row['income_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
 	                           </td>
 	                        </tr>
 	                        <?php } ?>

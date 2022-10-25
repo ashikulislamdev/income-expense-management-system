@@ -18,7 +18,7 @@
    
        $incomes = "INSERT INTO incomes (user_id, income,incomedate,incomecategory, income_note) VALUES ('$userid', '$incomeamount','$incomedate','$incomecategory','$income_note')";
        $result = mysqli_query($con, $incomes) or die("Something Went Wrong!");
-       echo("<script>location.href='add_income.php'</script>");
+       echo("<script>location.href='add_income'</script>");
    }
 
    if (isset($_POST['update'])) {
@@ -34,7 +34,7 @@
        } else {
            echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
        }
-       header('location: manage_income.php');
+       header('location: manage_income');
    }
 
 
@@ -68,7 +68,7 @@
        } else {
            echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
        }
-       header('location: manage_income.php');
+       header('location: manage_income');
    }
 
    if (isset($_GET['delete'])) {
@@ -185,7 +185,7 @@
 
                      		$add_category_sql = "INSERT INTO income_category (user_id, i_category_name) VALUES ('$userid', '$new_category')";
 					       $result = mysqli_query($con, $add_category_sql) or die("Something Went Wrong!");
-					       echo("<script>location.href='add_income.php'</script>");
+					       echo("<script>location.href='add_income'</script>");
                      	}
                      ?>
 

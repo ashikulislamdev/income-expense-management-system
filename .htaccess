@@ -1,0 +1,47 @@
+RewriteEngine On
+ErrorDocument 404 "<script>location.href='login';</script>"
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
+RewriteRule .* - [L,R=404]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+
+# CREATE API URL 
+RewriteRule ^api_login api/login [QSA,L]
+# RewriteRule ^group/(.*)$ api/groups?course_type_id=$1 [QSA,L]
+# RewriteRule ^subject/(.*)$ api/subjects?group_id=$1 [QSA,L]
+# RewriteRule ^course/(.*)$ api/courses?subject_id=$1 [QSA,L]
+# RewriteRule ^free-course/(.*)$ api/freeCourses?subject_id=$1 [QSA,L]
+# RewriteRule ^dashboard-free-courses/ api/dashboard-free-courses [QSA,L]
+# RewriteRule ^books_data/ api/books [QSA,L]
+# RewriteRule ^lesson/(.*)$ api/lessons?course_id=$1 [QSA,L]
+# RewriteRule ^limit_lesson/(.*)$ api/limitLessons?course_id=$1 [QSA,L]
+# RewriteRule ^purchase_course/(.*)$ api/purchaseCourse?user_id=$1 [QSA,L]
+# RewriteRule ^purchase_book/(.*)$ api/purchaseBook?user_id=$1 [QSA,L]
+# RewriteRule ^order_history/(.*)$ api/orderHistory?user_id=$1 [QSA,L]
+
+# #Create API URL For Quiz 
+# # RewriteRule ^allQuestions/ api/allQuestions?exam_id=$1 [QSA,L]
+
+# # RewriteRule ^get_answer/(.*)$ api/get_answer?exans_id=$1 
+
+# RewriteRule ^get_exam_subject/(.*)$ api/exam_subject_fetch [QSA,L]
+
+# RewriteRule ^get_exam_name/(.*)$ api/exam_name_fetch?ex_name_id=$1 [QSA,L]
+# RewriteRule ^get_question/(.*)$ api/allQuestions?exam_id=$1 [QSA,L]
+# RewriteRule ^show_answer/(.*)$ api/show_answer?user_id=$1 [QSA,L]
+
+# RewriteRule ^got_exam_name/(.*)$ api/got_exam_reslut.php?user_id=$1 [QSA,L]
+
+# RewriteRule ^get_result/(.*)$ api/get_result.php?exam_id=$1*&user_id=$1 [QSA,L]
+# RewriteRule ^start_quiz/(.*)$ api/start_quiz [QSA,L]
+
+
+
+

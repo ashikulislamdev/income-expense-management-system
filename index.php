@@ -71,7 +71,7 @@
                 <div class="justify-content-center pt-2">
                   <div class="col-md-12" style="overflow:scroll;">
                   <div class="mr-auto p-2">
-                      <a href="iems-register.php" class="btn btn-primary">Add New Expance</a>
+                      <a href="iems-register" class="btn btn-primary">Add New Expance</a>
                   </div>
                      <table class="table table-hover table-bordered" style="min-width: 700px;">
                         <thead>
@@ -160,31 +160,31 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col text-center">
-                          <a href="add_income.php"><img src="icon/add-income.png" width="57px" />
+                          <a href="add_income"><img src="icon/add-income.png" width="57px" />
                             <p class="language_en" id="language_en">Add Income</p>
                             <p class="language_bn" id="language_bn">আয় যুক্ত করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
-                          <a href="manage_income.php"><img src="icon/manage-income.png" width="57px" />
+                          <a href="manage_income"><img src="icon/manage-income.png" width="57px" />
                             <p class="language_en" id="language_en">Manage Income</p>
                             <p class="language_bn" id="language_bn">আয় ম্যানেজ করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
-                          <a href="add_expense.php"><img src="icon/addex.png" width="57px" />
+                          <a href="add_expense"><img src="icon/addex.png" width="57px" />
                             <p class="language_en" id="language_en">Add Expenses</p>
                             <p class="language_bn" id="language_bn">খরচ যুক্ত করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
-                          <a href="manage_expense.php"><img src="icon/maex.png" width="57px" />
+                          <a href="manage_expense"><img src="icon/maex.png" width="57px" />
                             <p class="language_en" id="language_en">Manage Expenses</p>
                             <p class="language_bn" id="language_bn">খরচ ম্যানেজ করুন</p>
                           </a>
                         </div>
                         <div class="col text-center">
-                          <a href="profile.php"><img src="icon/prof.png" width="57px" />
+                          <a href="profile"><img src="icon/prof.png" width="57px" />
                             <p class="language_en" id="language_en">Profile</p>
                             <p class="language_bn" id="language_bn">প্রোফাইল</p>
                           </a>
@@ -215,7 +215,7 @@
                               <h5 class="text-light">Income</h5>
                             </div>
                             <h5 class="text-white my-2">Total - <?php echo $income_amount; ?> TK</h5>
-                            <a href="manage_income.php" class="btn btn-sm">View All</a>
+                            <a href="manage_income" class="btn btn-sm">View All</a>
                         </div>
                     </div>
                   </div>
@@ -230,7 +230,7 @@
                               <h5 class="text-light">Expense</h5>
                             </div>
                             <h5 class="text-white my-2">Total - <?php echo $expence_amount - $self_profit; ?> TK</h5>
-                            <a href="manage_expense.php" class="btn btn-sm">View All</a>
+                            <a href="manage_expense" class="btn btn-sm">View All</a>
                         </div>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
                               <h5 class="text-light">Last Month</h5>
                             </div>
                             <h5 class="text-white my-2">Income - <?php echo $income_last_month_amount; ?> TK</h5>
-                            <a href="manage_income.php?data=last_month" class="btn btn-sm">View All</a>
+                            <a href="manage_income?data=last_month" class="btn btn-sm">View All</a>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
                               <h5 class="text-light">Last Month</h5>
                             </div>
                             <h5 class="text-white my-2">Expense - <?php echo $expence_last_month_amount; ?> TK</h5>
-                            <a href="manage_expense.php?data=last_month" class="btn btn-sm">View All</a>
+                            <a href="manage_expense?data=last_month" class="btn btn-sm">View All</a>
                         </div>
                     </div>
                 </div>
@@ -274,7 +274,7 @@
                               <h5 class="text-light">Today</h5>
                             </div>
                             <h5 class="text-white my-2">Income - <?php echo $income_last_day_amount; ?> TK</h5>
-                            <a href="manage_income.php?data=last_day" class="btn btn-sm">View All</a>
+                            <a href="manage_income?data=last_day" class="btn btn-sm">View All</a>
                         </div>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
                               <h5 class="text-light">Today</h5>
                             </div>
                             <h5 class="text-white my-2">Expenses - <?php echo $expenses_last_day_amount; ?> TK</h5>
-                            <a href="manage_expense.php?data=last_day" class="btn btn-sm">View All</a>
+                            <a href="manage_expense?data=last_day" class="btn btn-sm">View All</a>
                         </div>
                     </div>
                 </div>
@@ -303,7 +303,7 @@
                               <h5 class="text-light">Today</h5>
                             </div>
                             <h5 class="text-white my-2">Cash - <?php echo $income_last_day_amount - $expenses_last_day_amount; ?> TK</h5>
-                            <a href="daily_subtotal.php" class="btn btn-sm">Report</a>
+                            <a href="daily_subtotal" class="btn btn-sm">Report</a>
                         </div>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
                               <h5 class="text-light">Profit</h5>
                             </div>
                             <h5 class="text-white my-2">Total - <?php echo $self_profit ? $self_profit : '0'; ?> TK</h5>
-                            <a href="view-withdraw.php?ctgry=en_wdr" class="btn btn-sm">Report</a>
+                            <a href="view-withdraw?ctgry=en_wdr" class="btn btn-sm">Report</a>
                         </div>
                     </div>
                 </div>
