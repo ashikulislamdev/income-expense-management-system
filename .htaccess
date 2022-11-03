@@ -13,7 +13,15 @@ RewriteCond %{REQUEST_FILENAME} !-l
 
 
 # CREATE API URL 
-RewriteRule ^api_login api/login [QSA,L]
+RewriteRule ^login_api_post api/login_api_post.php [QSA,L]
+RewriteRule ^update_profile_api api/update_profile_api.php [QSA,L]
+
+
+
+
+
+
+
 # RewriteRule ^group/(.*)$ api/groups?course_type_id=$1 [QSA,L]
 # RewriteRule ^subject/(.*)$ api/subjects?group_id=$1 [QSA,L]
 # RewriteRule ^course/(.*)$ api/courses?subject_id=$1 [QSA,L]
