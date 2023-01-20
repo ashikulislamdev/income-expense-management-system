@@ -9,6 +9,7 @@ exit();
 $sess_email = $_SESSION["email"];
 $sql = "SELECT user_id, firstname, phone_no, email, password, address, profile_path, status, receipt_id FROM users WHERE email = '$sess_email'";
 $result = $con->query($sql);
+date_default_timezone_set('Asia/Dhaka');
 
 if ($result->num_rows > 0) {
   // output data of each row

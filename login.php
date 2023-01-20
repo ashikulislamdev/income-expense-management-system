@@ -103,26 +103,33 @@ if (isset($_POST['email'])) {
 </head>
 
 <body>
-  <div class="login-form">
-    <form action="" method="POST" autocomplete="off">
-      <h2 class="text-center">জমা খরচ</h2>
-      <p class="hint-text">Login Panel</p>
-      <div class="form-group">
-        <input type="text" name="email" class="form-control" placeholder="Email" required="required">
-      </div>
-      <div class="form-group">
-        <input type="password" name="password" class="form-control" placeholder="Password" required="required">
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-success btn-block" style="border-radius:0%;">Login</button>
-      </div>
-      <div class="clearfix">
-        <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-        
-      </div>
-    </form>
-    <!-- <p class="text-center">Don't have an account?<a href="iems-register" class="text-danger"> Register Here</a></p> -->
-  </div>
+    <div class="login-form">
+      <form action="" method="POST" autocomplete="off">
+        <h2 class="text-center">জমা খরচ</h2>
+        <p class="hint-text">Login Panel</p>
+        <div class="form-group">
+          <input type="text" name="email" class="form-control" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block" style="border-radius:0%;">Login</button>
+        </div>
+        <div class="clearfix">
+          <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+          
+        </div>
+      </form>
+      <!-- <p class="text-center">Don't have an account?<a href="iems-register" class="text-danger"> Register Here</a></p> -->
+    </div>
+
+    <div class="text-center px-3">
+      <h6>
+        To see demo account use "demo@gmail.com" and "12345" as Email and Password.
+      </h6>
+      <p>To register your account click <a href="https://amarseba.net/?page=2">Amarseba</a></p>
+    </div>
 </body>
 <!-- Bootstrap core JavaScript -->
 <script src="js/jquery.slim.min.js"></script>
@@ -139,9 +146,3 @@ if (isset($_POST['email'])) {
 </script>
 
 </html>
-
-
-
-<!-- DB : callnsolution_iems_charatiudc
-user : callnsolution_iems_charatiudc
-pass : XJwP6&a6!&%, -->

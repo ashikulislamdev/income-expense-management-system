@@ -1,5 +1,6 @@
 <?php
    include("session.php");
+   date_default_timezone_set('Asia/Dhaka');
    $update = false;
    $del = false;
    $incomeamount = "";
@@ -138,7 +139,7 @@
                         <div class="form-group row">
                            <label for="incomedate" class="col-sm-6 col-form-label"><b>Date</b></label>
                            <div class="col-md-6">
-                              <input type="date" class="form-control col-sm-12" value="<?php echo $incomedate; ?>" name="incomedate" id="incomedate" required>
+                              <input type="Date" class="form-control col-sm-12" value="<?php echo $incomedate; ?>" name="incomedate" id="incomedate" required>
                            </div>
                         </div>
 

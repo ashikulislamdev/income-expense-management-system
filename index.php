@@ -3,6 +3,10 @@
   $exp_category_dc = mysqli_query($con, "SELECT expensecategory FROM expenses WHERE user_id = '$userid' GROUP BY expensecategory");
   $exp_amt_dc = mysqli_query($con, "SELECT SUM(expense) FROM expenses WHERE user_id = '$userid' GROUP BY expensecategory");
 
+  $inc_category_dc = mysqli_query($con, "SELECT incomecategory FROM incomes WHERE user_id = '$userid' GROUP BY incomecategory");
+  $inc_amt_dc = mysqli_query($con, "SELECT SUM(income) FROM incomes WHERE user_id = '$userid' GROUP BY incomecategory");
+
+
   $exp_date_line = mysqli_query($con, "SELECT expensedate FROM expenses WHERE user_id = '$userid' GROUP BY expensedate");
   $exp_amt_line = mysqli_query($con, "SELECT SUM(expense) FROM expenses WHERE user_id = '$userid' GROUP BY expensedate");
 
@@ -21,15 +25,16 @@
   $expence_amount = mysqli_fetch_assoc($expence_amount); 
   $expence_amount = $expence_amount['expenses'];
 
-
+//SELECT SUM(income) AS last_month_incomes FROM incomes WHERE MONTH(incomedate)=MONTH(now()) AND YEAR(incomedate)=YEAR(now()) AND user_id = 20;
+  
   //get last month income report
-  $income_last_month_amount = mysqli_query($con, "SELECT SUM(income) AS last_month_incomes FROM `incomes` WHERE incomedate > (NOW() - INTERVAL 1 MONTH) AND `user_id` = '$userid'");
+  $income_last_month_amount = mysqli_query($con, "SELECT SUM(income) AS last_month_incomes FROM `incomes` WHERE MONTH(incomedate)=MONTH(now()) AND YEAR(incomedate)=YEAR(now()) AND `user_id` = '$userid'");
   $income_last_month_amount = mysqli_fetch_assoc($income_last_month_amount); 
   $income_last_month_amount = $income_last_month_amount['last_month_incomes'];
 
 
   //get last month expense report 
-  $expence_last_month_amount = mysqli_query($con, "SELECT SUM(expense) AS last_month_expenses FROM `expenses` WHERE expensedate > (NOW() - INTERVAL 1 MONTH) AND `user_id` = '$userid'");
+  $expence_last_month_amount = mysqli_query($con, "SELECT SUM(expense) AS last_month_expenses FROM `expenses` WHERE MONTH(expensedate)=MONTH(now()) AND YEAR(expensedate)=YEAR(now()) AND `user_id` = '$userid'");
   $expence_last_month_amount = mysqli_fetch_assoc($expence_last_month_amount); 
   $expence_last_month_amount = $expence_last_month_amount['last_month_expenses'];
 
@@ -242,7 +247,7 @@
                               <div class="mr-auto">
                                   <i class='bx bxs-calendar-check'></i>
                               </div>
-                              <h5 class="text-light">Last Month</h5>
+                              <h5 class="text-light">This Month</h5>
                             </div>
                             <h5 class="text-white my-2">Income - <?php echo $income_last_month_amount; ?> TK</h5>
                             <a href="manage_income?data=last_month" class="btn btn-sm">View All</a>
@@ -256,7 +261,7 @@
                               <div class="mr-auto">
                                   <i class='bx bxs-calendar-minus'></i>
                               </div>
-                              <h5 class="text-light">Last Month</h5>
+                              <h5 class="text-light">This Month</h5>
                             </div>
                             <h5 class="text-white my-2">Expense - <?php echo $expence_last_month_amount; ?> TK</h5>
                             <a href="manage_expense?data=last_month" class="btn btn-sm">View All</a>
@@ -351,13 +356,23 @@
 
               <h3 class="mt-4">Full-Income Report</h3>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md">
                   <div class="card">
                     <div class="card-header">
                       <h5 class="card-title text-center">Yearly Incomes</h5>
                     </div>
                     <div class="card-body">
                       <canvas id="income_line" height="150"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="card-title text-center">Income Category</h5>
+                    </div>
+                    <div class="card-body">
+                      <canvas id="income_category_pie" height="150"></canvas>
                     </div>
                   </div>
                 </div>
@@ -422,6 +437,40 @@
         }]
       }
     });
+
+
+
+    var ctx2 = document.getElementById('income_category_pie').getContext('2d');
+    //alert()
+    var myChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: [<?php while ($a = mysqli_fetch_array($inc_category_dc)) {
+                    echo '"' . $a['incomecategory'] . '",';
+                  } ?>],
+        datasets: [{
+          label: 'Income by Category',
+          data: [<?php while ($b = mysqli_fetch_array($inc_amt_dc)) {
+                    echo '"' . $b['SUM(income)'] . '",';
+                  } ?>],
+          backgroundColor: [
+            '#6f42c1',
+            '#dc3545',
+            '#28a745',
+            '#007bff',
+            '#ffc107',
+            '#20c997',
+            '#17a2b8',
+            '#fd7e14',
+            '#e83e8c',
+            '#6610f2',
+            '#1A59ED'
+          ],
+          borderWidth: 1
+        }]
+      }
+    });
+
 
     var line = document.getElementById('expense_line').getContext('2d');
     var myChart = new Chart(line, {

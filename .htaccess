@@ -15,6 +15,7 @@ RewriteCond %{REQUEST_FILENAME} !-l
 # CREATE API URL 
 RewriteRule ^login_api_post api/login_api_post.php [QSA,L]
 RewriteRule ^update_profile_api api/update_profile_api.php [QSA,L]
+RewriteRule ^get_imcomes api/get_imcomes.php?user_id=$1 [QSA,L]
 
 
 
