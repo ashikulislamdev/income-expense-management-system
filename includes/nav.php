@@ -141,6 +141,7 @@ Reach out to +880 1609103475 or email (rsgroup150@gmail.com) us for support. -->
               <a href="manage_expense" class="list-group-item list-group-item-action "><i class='bx bx-slider-alt'></i> Manage Expenses</a>
 
               <a href="receipt" class="list-group-item list-group-item-action "><i class='bx bx-receipt'></i> Money Receipt</a>
+              <a href="my_notes" class="list-group-item list-group-item-action "><i class='bx bx-note'></i>Importent Note</a>
             <?php
           }
         ?>

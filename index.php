@@ -159,6 +159,12 @@
           ?>
             <div class="container-fluid">
               <h3 class="mt-4">Dashboard</h3>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>আপডেট!</strong> Important Note নামে নতুন অপশন যুক্ত করা হয়েছে.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
               <div class="row">
                 <div class="col-md" style="overflow: scroll;">
                   <div class="card" style="min-width: 700px;">
