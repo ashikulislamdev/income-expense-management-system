@@ -1,6 +1,7 @@
 <?php
     include("session.php");
 
+    $expensecategory = "";
     //Get all data query
     $income_fetched = mysqli_query($con, "SELECT * FROM incomes WHERE user_id = '$userid' ORDER BY incomedate DESC");
 

@@ -1,6 +1,7 @@
 <?php
     include("session.php");
 
+    $expensecategory = "";
     //get all data query 
 
       // à¦®à¦¾à¦²à¦¿à¦•à§‡à¦° à¦‰à¦¤à§à¦¤à§‹à¦²à¦¨ মানে মালিকের উত্তোলন latin1_swedish_ci EntrepreneurWithdrawal (মালিকের উত্তোলন ta localhost E kaj kore nah)
@@ -42,6 +43,37 @@
                                   <label>&nbsp; To date &nbsp</label>
                                   <input type="date" name="to_date" class="form-control">&nbsp; 
                               </div>
+
+                              <div class="form-group">
+                              <select name="expensecategory" id="expensecategory" class="form-control col-sm-12 js-example-basic-single">
+                                 <option value=""></option>
+                                 
+                                    <option value="মালিকের উত্তোলন">মালিকের উত্তোলন</option>
+                        
+                        <?php
+                           $sql = "SELECT * FROM expense_category WHERE user_id='$userid' ";
+                           $res = mysqli_query($con, $sql);
+                           $count = mysqli_num_rows($res);
+
+                           if ($count>0) {
+                              while ($row=mysqli_fetch_assoc($res)) {
+                                 $e_category_id = $row['e_category_id'];
+                                 $e_category_name = $row['e_category_name'];
+                                 ?>
+                                    <option value="<?php echo $e_category_name; ?>" <?php if($e_category_name == $expensecategory){echo 'selected';} ?>><?php echo $e_category_name; ?></option>  
+                                 <?php
+                              }
+                           }else{
+                              ?>
+                                 <option disabled value="">Not Found(Please Add New)</option>
+                              <?php
+                           }
+
+                        ?>
+
+                             </select>
+                              </div>
+
                               <div class="form-group">
                                   <button type="submit" class="btn btn-primary">Filter</button>
                               </div>
@@ -112,18 +144,26 @@
                     }
                 ?>
 
-
-                <?php 
-                    if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
+                
+                <?php //filtered data
+                    if (isset($_GET['from_date']) && isset($_GET['to_date']) && isset($_GET['expensecategory'])) {
                         $from_date = $_GET['from_date'];
                         $to_date = $_GET['to_date'];
+                        $expensecategory = $_GET['expensecategory'];
 
-                        $filter_query = "SELECT * FROM expenses WHERE expensedate BETWEEN '$from_date' AND '$to_date' AND  user_id = '$userid' ORDER BY expensedate DESC";
+                        $filter_query = "SELECT * FROM expenses WHERE expensedate BETWEEN '$from_date' AND '$to_date' AND  user_id = '$userid'";
+                        if($expensecategory != null){
+                            $filter_query .= " AND expensecategory='$expensecategory' ";
+                        }
+                        $filter_query .= " ORDER BY expensedate DESC";
                         $filter_res = mysqli_query($con, $filter_query);
 
-
-                        //get last month expense report 
-                        $expence_filter_amount = mysqli_query($con, "SELECT SUM(expense) AS filtered_expenses FROM `expenses` WHERE expensedate BETWEEN '$from_date' AND '$to_date' AND `user_id` = '$userid'");
+                        
+                        $expence_filter_amount_query = "SELECT SUM(expense) AS filtered_expenses FROM `expenses` WHERE expensedate BETWEEN '$from_date' AND '$to_date' AND `user_id` = '$userid'";
+                        if($expensecategory != null){
+                            $expence_filter_amount_query .= " AND expensecategory='$expensecategory' ";
+                        }
+                        $expence_filter_amount = mysqli_query($con, $expence_filter_amount_query);
                         $expence_filter_amount = mysqli_fetch_assoc($expence_filter_amount); 
                         $expence_filter_amount = $expence_filter_amount['filtered_expenses'];
 
